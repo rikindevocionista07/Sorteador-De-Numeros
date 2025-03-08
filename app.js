@@ -10,7 +10,8 @@ function sortear() {
     let sorteados = [];
     // Variável para armazenar o número sorteado
     let numero;
-  if (de > ate){
+  //Caso o usuario digite um numero maior no campo "do numero " do que "ate o numero "
+    if (de > ate){
     alert('Insira um numero menor do que o número que esta no campo ate o número')
     function reiniciar(){
       document.getElementById('quantidade').value = '';
@@ -21,22 +22,23 @@ function sortear() {
   alterarStatusBotao();
   }
   }
-
-
+  
+  if (quantidade > (ate - de + 1)) {
+    alert('Campo "Quantidade" deve ser menor ou igual ao intervalo informado no campo "Do número" até o campo "Até o número". Verifique!');
+    return;
+  }
+    
     // Loop para sortear a quantidade de números desejada
     for (let i = 0; i < quantidade; i++) {
-      // Obter um número aleatório dentro do intervalo
       numero = obterNumeroAleatorio(de, ate);
-      // Verificar se o número já foi sorteado
-      while (sorteados.includes(numero)) {
-        // Se já foi sorteado, gerar outro número aleatório
-        numero = obterNumeroAleatorio(de, ate);
-      }
   
-      // Adicionar o número sorteado ao array
+      while (sorteados.includes(numero)) {
+        numero = obterNumeroAleatorio(de, ate);
+        alert('Tentando obter número inédito');
+      } 
+      //Adicionar numero na (array)
       sorteados.push(numero);
     }
-  
     // Exibir os números sorteados na página
     let resultado = document.getElementById('resultado');
     resultado.innerHTML = `<label class="texto__paragrafo">Números sorteados: ${sorteados} </label>`;
