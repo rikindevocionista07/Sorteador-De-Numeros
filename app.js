@@ -10,7 +10,19 @@ function sortear() {
     let sorteados = [];
     // Variável para armazenar o número sorteado
     let numero;
-  
+  if (de > ate){
+    alert('Insira um numero menor do que o número que esta no campo ate o número')
+    function reiniciar(){
+      document.getElementById('quantidade').value = '';
+      document.getElementById('de').value = '';
+      document.getElementById('ate').value = '';
+  document.getElementById('resultado').innerHTML = ' <label class="texto__paragrafo">Números sorteados:  nenhum até agora</label>'
+   
+  alterarStatusBotao();
+  }
+  }
+
+
     // Loop para sortear a quantidade de números desejada
     for (let i = 0; i < quantidade; i++) {
       // Obter um número aleatório dentro do intervalo
